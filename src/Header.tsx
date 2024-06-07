@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './styles.css';
-import { Link } from 'react-router-dom';
-import "./formations";
+import "./pages formations/formations";
 import "./contactPage";
-import "./about"
-
+import "./about";
+import "./home";
 interface StarProps {
   style: React.CSSProperties;
 }
@@ -14,6 +14,9 @@ const Star: React.FC<StarProps> = ({ style }) => {
 };
 
 const Header: React.FC = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   const starsCount = 100;
   const stars = Array.from({ length: starsCount }).map(() => {
     const starStyle = {
@@ -54,14 +57,16 @@ const Header: React.FC = () => {
           <Link to="/Formations" className="block p-3 text-black hover:bg-gray-200">Nos formations</Link>
         </div>
       </div>
-      <nav className="mt-5">
-      <ul className="flex justify-center space-x-6">
-    <li><a href="#convives" className="text-white">Formule convives</a></li>
-    <li><a href="#Cheffe" className="text-white">Formule Cheffe</a></li>
-    <li><a href="#entrepreneur" className="text-white">Formule entrepreneur</a></li>
-    <li><a href="#apropos" className="text-white">À propos</a></li>
-  </ul>
-      </nav>
+      {isHomePage && (
+        <nav className="mt-5">
+          <ul className="flex justify-center space-x-6">
+            <li><a href="#convives" className="text-white">Formule convives</a></li>
+            <li><a href="#Cheffe" className="text-white">Formule Cheffe</a></li>
+            <li><a href="#entrepreneur" className="text-white">Formule entrepreneur</a></li>
+            <li><a href="#apropos" className="text-white">À propos</a></li>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 };

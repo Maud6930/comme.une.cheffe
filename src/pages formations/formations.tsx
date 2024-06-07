@@ -1,7 +1,9 @@
 import React from 'react';
-import Header from './Header';
-import Section from './section';
-import Footer from './Footer';
+import Header from '../Header';
+import Section from '../section';
+import Footer from '../Footer';
+import { Link } from 'react-router-dom';
+import './CategorieAsie';
 
 const Formations: React.FC = () => { 
   
@@ -17,7 +19,7 @@ const Formations: React.FC = () => {
               Choisissez votre continent et découvrez-y nos secrets.
             </p>
             <div>
-              <a href="platAsie.html" className="block text-blue-500 hover:text-blue-700"><h4>Catégorie Asie</h4></a>
+              <Link to="/CategorieAsie" className="block text-blue-500 hover:text-blue-700"><h4>Catégorie Asie</h4></Link>
               <a href="platEurope.html" className="block text-blue-500 hover:text-blue-700"><h4>Catégorie Europe</h4></a>
               <a href="platAmérique.html" className="block text-blue-500 hover:text-blue-700"><h4>Catégorie Amérique</h4></a>
               <a href="lien-vers-catégorie-afrique.html" className="block text-blue-500 hover:text-blue-700"><h4>Catégorie Afrique</h4></a>
